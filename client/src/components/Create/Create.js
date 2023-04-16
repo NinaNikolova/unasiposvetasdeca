@@ -1,0 +1,142 @@
+import './Animation.css';
+import './Form.css'
+
+import { useStoryContext } from '../../contexts/StoryContext';
+import { useState } from 'react';
+
+
+export const Create = () => {
+	const { onCreateStorySubmit, storyAdd } = useStoryContext()
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+	const [imageFile, setImageFile] = useState(null);
+	const [img, setImageUrl] = useState("");
+	const [route, setRoute] = useState("");
+	const [duration, setDuration] = useState("");
+	const [placesToEat, setPlacesToEat] = useState("");
+
+	const handleNameChange = (e) => {
+		setTitle(e.target.value);
+	};
+
+	const handleDescriptionChange = (e) => {
+		setDescription(e.target.value);
+	};
+
+	const handleImageChange = (e) => {
+		setImageFile(e.target.files[0]);
+	};
+	const handleDurationChange = (e) => {
+		setDuration(e.target.value);
+	};
+	const handleRouteChange = (e) => {
+		setRoute(e.target.value);
+	};
+	const handlePlacesToEatChange = (e) => {
+		setPlacesToEat(e.target.value);
+	};
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		// Upload image to Cloudinary
+		const formData = new FormData();
+		formData.append("file", imageFile);
+		formData.append("upload_preset", "s5ek3yh0");
+		const response = await fetch("https://api.cloudinary.com/v1_1/dc6hhvdow/image/upload", {
+			method: "POST",
+			body: formData
+		}
+		);
+
+		// Get image URL from Cloudinary response
+		const data = await response.json();
+		const img = data.secure_url;
+		setImageUrl(img);
+		await onCreateStorySubmit({ title, img, description, duration, placesToEat })
+
+		// Reset form fields
+		setTitle("");
+		setDescription("");
+		setImageFile(null);
+		setRoute("");
+		setDuration("");
+		setPlacesToEat("");
+	}
+
+	return (
+		<section id="create">
+			<br />
+			<div className="typewriter">
+				<div className="slide"><i></i></div>
+				<div className="paper"></div>
+				<div className="keyboard"></div>
+			</div>
+
+
+			<div className="form">
+				<h2>Създай твоя кратък разказ</h2>
+
+			
+					<form onSubmit={handleSubmit}>
+						<div>
+							<label htmlFor="title">Заглавие:</label>
+							<input
+								type="text"
+								id="title"
+								value={title}
+								onChange={handleNameChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="description">Твоя разказ:</label>
+							<textarea rows="16" cols="50"
+								id="description" 
+								value={description}
+								onChange={handleDescriptionChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="img">Най-харесвана снимка:</label>
+							<input
+								type="file"
+								id="img"
+								accept="image/*"
+								onChange={handleImageChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="duration">Времетраене:</label>
+							<input
+								type="text"
+								id="duration"
+								value={duration}
+								onChange={handleDurationChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="route">Mаршрут:</label>
+							<input
+								type="text"
+								id="route"
+								value={route}
+								onChange={handleRouteChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="placesToEat">Места за хранене:</label>
+							<input
+								type="text"
+								id="placesToEat"
+								value={placesToEat}
+								onChange={handlePlacesToEatChange}
+							/>
+						</div>
+						<button type="submit">Submit</button>
+					</form>
+					
+				</div>
+		
+
+		</section>
+
+	)
+}

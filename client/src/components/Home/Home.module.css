@@ -1,0 +1,42 @@
+#root #main #home {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+
+}
+#root #home img {
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  margin-block: 10px;
+}
+
+
+
+
+#home h1 {
+  font-style: italic;
+  font-size: 30px;
+  color: green;
+  text-align: center;
+}
+
+#home h2,
+#home h3 {
+  font-style: italic;
+  font-size: 27px;
+  color: rgb(68, 67, 67);
+  text-align: center;
+}
+
+  
+
+  
+  
+  
+  
+
+ 

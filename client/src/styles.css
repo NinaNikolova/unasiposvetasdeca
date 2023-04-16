@@ -1,0 +1,30 @@
+@import url("https://unpkg.com/@fortawesome/fontawesome-free@6.3.0/css/all.min.css");
+
+#root{
+    margin: 20px;
+    padding: 20px;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 10px;
+    text-align: center;
+    color:green;
+    font-style: italic;
+  
+  }
+  
+  p, div, form {
+    text-align: center;
+    font-size: 19px;
+  }
+  
+  span {
+    font-size: 17px;
+  }
+  ul{
+    list-style-type: none;
+  }
+  a{
+    text-decoration: none;
+  }
