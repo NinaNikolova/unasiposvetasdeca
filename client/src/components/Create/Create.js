@@ -2,11 +2,14 @@ import './Animation.css';
 import './Form.css'
 
 import { useStoryContext } from '../../contexts/StoryContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 import { useState } from 'react';
 
 
 export const Create = () => {
+
 	const { onCreateStorySubmit, storyAdd } = useStoryContext()
+	const { email } = useAuthContext()
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [imageFile, setImageFile] = useState(null);
@@ -14,6 +17,7 @@ export const Create = () => {
 	const [route, setRoute] = useState("");
 	const [duration, setDuration] = useState("");
 	const [placesToEat, setPlacesToEat] = useState("");
+
 
 	const handleNameChange = (e) => {
 		setTitle(e.target.value);
@@ -75,66 +79,69 @@ export const Create = () => {
 			<div className="form">
 				<h2>Създай твоя кратък разказ</h2>
 
-			
-					<form onSubmit={handleSubmit}>
-						<div>
-							<label htmlFor="title">Заглавие:</label>
-							<input
-								type="text"
-								id="title"
-								value={title}
-								onChange={handleNameChange}
-							/>
-						</div>
-						<div>
-							<label htmlFor="description">Твоя разказ:</label>
-							<textarea rows="16" cols="50"
-								id="description" 
-								value={description}
-								onChange={handleDescriptionChange}
-							/>
-						</div>
-						<div>
-							<label htmlFor="img">Най-харесвана снимка:</label>
-							<input
-								type="file"
-								id="img"
-								accept="image/*"
-								onChange={handleImageChange}
-							/>
-						</div>
-						<div>
-							<label htmlFor="duration">Времетраене:</label>
-							<input
-								type="text"
-								id="duration"
-								value={duration}
-								onChange={handleDurationChange}
-							/>
-						</div>
-						<div>
-							<label htmlFor="route">Mаршрут:</label>
-							<input
-								type="text"
-								id="route"
-								value={route}
-								onChange={handleRouteChange}
-							/>
-						</div>
-						<div>
-							<label htmlFor="placesToEat">Места за хранене:</label>
-							<input
-								type="text"
-								id="placesToEat"
-								value={placesToEat}
-								onChange={handlePlacesToEatChange}
-							/>
-						</div>
-						<button type="submit">Submit</button>
-					</form>
-					
-				</div>
-		
+
+				<form onSubmit={handleSubmit}>
+					<div>
+						<label htmlFor="title">Заглавие:</label>
+						<input
+							type="text"
+							id="title"
+							value={title}
+							onChange={handleNameChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="description">Твоя разказ:</label>
+						<textarea rows="16" cols="50"
+							id="description"
+							value={description}
+							onChange={handleDescriptionChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="img">Най-харесвана снимка:</label>
+						<input
+							type="file"
+							id="img"
+							accept="image/*"
+							onChange={handleImageChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="duration">Времетраене:</label>
+						<input
+							type="text"
+							size="100"
+							id="duration"
+							value={duration}
+							onChange={handleDurationChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="route">Mаршрут:</label>
+						<input
+							type="text"
+							size="100"
+							id="route"
+							value={route}
+							onChange={handleRouteChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="placesToEat">Места за хранене:</label>
+						<input
+							type="text"
+							size="100"
+							id="placesToEat"
+							value={placesToEat}
+							onChange={handlePlacesToEatChange}
+						/>
+					</div>
+					<button type="submit">Submit</button>
+				</form>
+
+			</div>
+
 
 		</section>
 

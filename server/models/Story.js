@@ -10,6 +10,7 @@ const storySchema = new Schema({
         message: 'Невалиден адрес на снимката. Трябва да започва с http или https'
     } },
     _ownerId: { type: ObjectId, ref: 'User', required: true },
+    email: { type: String },
     duration: { type: String, minlength: [3, 'Продължителност трябва да бъде поне 3 букви или цифри'] },
     route: { type: String, minlength: [3, 'Продължителност трябва да бъде поне 3 букви или цифри'] },
     placesToEat: { type: String, minlength: [3, 'Продължителност трябва да бъде поне 3 букви или цифри'] },

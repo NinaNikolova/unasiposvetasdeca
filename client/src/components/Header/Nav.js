@@ -38,6 +38,7 @@ export const MyNavbar = () => {
                     </Figure.Caption>
                 </Figure>
                 </Nav.Link>
+            
                 <Navbar.Toggle  aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav variant="pills" >

@@ -24,7 +24,7 @@ export const AuthProvider = ({
         try {
             const result = await authService.register(registerData)
             setAuth(result);
-            navigate('/catalog')
+            navigate('/')
         } catch (error) {
             console.log('There is problem')
         }
@@ -35,7 +35,7 @@ export const AuthProvider = ({
             const result = await authService.login(data)
             setAuth(result);
 
-            navigate('/catalog')
+            navigate('/')
         } catch (error) {
             console.log('There is problem')
         }

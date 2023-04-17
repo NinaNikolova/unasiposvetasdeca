@@ -1,5 +1,5 @@
 import './StoryDetails.module.css'
-import { useEffect, useReducer } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Figure from 'react-bootstrap/Figure';
@@ -8,49 +8,44 @@ import * as storyService from '../../services/storyService';
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useStoryContext } from '../../contexts/StoryContext';
 
-import { storyReducer } from '../../reducers/storyReducer';
+
 
 
 export const StoryDetails = () => {
-    const {storyDelete, stories} = useStoryContext()
+    const { storyDelete, stories } = useStoryContext()
+console.log(stories)
     const { userId, isAuthenticated, email } = useAuthContext()
+    console.log(userId, email)
     const { storyId } = useParams();
-    const [story, dispatch] = useReducer(storyReducer, {})
+    const [story, setStory] = useState({})
+
     const navigate = useNavigate()
 
-  
+
 
     useEffect(() => {
-        Promise.all([
-            storyService.getOne(storyId),
-            
-        ])
-            .then(([storyData]) => {
-                const storyState = {
-                    ...storyData
-                }
-                dispatch({ type: 'STORY_FETCH', payload: storyState })
-
+        storyService.getOne(storyId)
+            .then(result => {
+                setStory(result);
             })
-    }, [storyId]);
+    }, [])
 
-   
- 
+console.log(story)
 
-    const onDeleteClick = () => {
-        // eslint-disable-next-line no-restricted-globals
-        const choice = confirm(`Сигурни ли сте, че искате да изтиете ${story.title}`);
+    async function onDeleteClick() {
+        // eslint-disable-next-line no-restricted-globals 
+        const choice = confirm(`Сигурни ли сте, че искате да изтриете ${story.title}`);
+
         if (choice) {
-            storyService.delStory(storyId);
-
             storyDelete(storyId);
-
+                 await storyService.delStory(storyId);
             navigate('/catalog');
+       
         }
 
-    };
 
-let em = stories.find(x=>x._id===storyId);
+    }
+
 
     return (
         <section id="details">
@@ -71,12 +66,17 @@ let em = stories.find(x=>x._id===storyId);
 
 
                 <div className="info-wrapper">
-                    <p><strong>E-mail: </strong><span id="details-singer">{em?.email}</span></p>
-
-                    <p><span><strong>Твоя кратък разказ: </strong></span>{story.description}</p>
-                    <p><span><strong>Времетраене: </strong></span>{story.duration}</p>
-                    <p><span><strong>Маршрут и как се стига до там: </strong></span>{story.route}</p>
-                    <p><span><strong>Места за хранене, ако има: </strong></span>{story.placesToEat}</p>
+                    <h6><strong><i className="fa-solid fa-user-pen"></i> Автор: </strong></h6>
+                    <p>{story.email}</p>
+                    <h6><strong><i className="fa-solid fa-book-open-reader"></i> Твоя кратък разказ: </strong></h6>
+                    <p>{story.description}</p>
+                    <h6><strong><i className="fa-regular fa-clock"></i> Времетраене: </strong></h6>
+                    <p>{story.duration}</p>
+                    <h6><strong><i className="fa-solid fa-route"></i> Маршрут и как се стига до там: </strong></h6>
+                    <p>{story.route}</p>
+                    <h6><strong><i className="fa-solid fa-utensils"></i> Места за хранене, ако има и ви харесват: </strong></h6>
+                    <p>{story.placesToEat}</p>
+                    <h2><i className="fa-solid fa-person-hiking"></i> <i className="fa-solid fa-person-biking"></i> <i className="fa-solid fa-person-walking-luggage"></i></h2>
                 </div>
 
                 {/* <!--Edit and Delete are only for creator--> */}
@@ -84,13 +84,13 @@ let em = stories.find(x=>x._id===storyId);
 
                 {story._ownerId === userId &&
                     <div className="action-buttons">
-                        <Button href={`/catalog/${storyId}/edit`} variant="warning">Редактирай <i className="fa-solid fa-file-pen"></i></Button>{' '}
-                        <Button onClick={onDeleteClick} variant="danger">Изтрий <i className="fa-solid fa-trash-can"></i></Button>{' '}
+                        <Button href={`/catalog/${storyId}/edit`} variant="warning">Редактирай <i className="fa-solid fa-file-pen"></i></Button>
+                        <Button onClick={onDeleteClick} variant="danger">Изтрий <i className="fa-solid fa-trash-can"></i></Button>
 
                     </div>}
-                    
-               
-     
+
+                <br />
+
             </div>
         </section>
     )

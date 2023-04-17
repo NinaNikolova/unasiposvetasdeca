@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as storyService from '../services/storyService';
-import * as authService from '../services/authService'
 
 export const StoryContext = createContext();
 
@@ -12,22 +11,16 @@ export const StoryProvider = ({
 }) => {
 
     const [stories, setStories] = useState([])
-    const [users, setUsers] = useState([])
- 
-    const navigate = useNavigate()
 
+
+    const navigate = useNavigate()
     useEffect(() => {
         storyService.getAll().then((stories) => {
                 setStories(stories);
-            });
-       
+     
+        });
     }, []);
   
-    
-
-
-
-    
     const onCreateStorySubmit = async (data) => {
         const newStory = await storyService.create(data);
        
@@ -50,8 +43,10 @@ export const StoryProvider = ({
         setStories(state => state.map(x => x._id === storyId ? storyData : x));
 
     }
-    const storyDelete = (storyId) => {
+
+    const storyDelete = async(storyId) => {
         setStories(state => state.filter(x => x._id !== storyId));
+     
         navigate('/catalog');
     }
     const getStory = (storyId) => {

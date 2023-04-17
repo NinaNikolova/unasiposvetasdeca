@@ -26,12 +26,13 @@ async function update(id, story) {
     existing.duration = story.duration;
     existing.route = story.route;
     existing.placesToEat = story.placesToEat;
+    existing.author = story.author;
 
     return existing.save();
 }
 
 async function deleteById(id) {
-    return Story.findByIdAndDelete(id);
+    return Story.findByIdAndRemove(id);
 }
 
 

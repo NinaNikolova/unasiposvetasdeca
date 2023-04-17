@@ -5,37 +5,25 @@
 }
 
 
-#dashboard .card img {
-    margin: auto;
-    height: 200px;
-    width: auto;
-    padding: 10px;
-}
+
 
 #dashboard .card-wrapper {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    gap:20px
 
 }
 
 #dashboard .card-wrapper h2 {
     margin: auto;
+     font-size: 21px;
 }
 
-#dashboard .title,
-#dashboard .salary {
-    font-size: 21px;
-}
 
-#dashboard .card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-width: 280px;
-    max-width: 23%;
-
-    min-height: 700px;
+#dashboard  .cardLi .card{
+  padding: 10px;
+    min-height: 560px;
     margin: 20px auto;
     background-color: white;
     border-radius: 10px;
@@ -47,12 +35,12 @@
     transition: all .4s ease;
 }
 
-#dashboard .card:hover {
+#dashboard  .cardLi .card:hover {
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, .25);
 }
 
-#dashboard .details-btn {
+#dashboard .cardLi .details-btn {
     display: block;
 
     width: 150px;
@@ -78,7 +66,7 @@
     box-shadow: 0 15px 15px lightgreen;
 }
 
-#dashboard .card p {
+#dashboard .cardLi .card p {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -95,7 +83,7 @@
 
 
 
-#dashboard .card p span {
+#dashboard .cardLi .card p span {
     /* float: right; */
     width: 100%;
     text-align: justify;
