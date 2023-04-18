@@ -15,9 +15,9 @@ const commentController = require('./controllers/commentController');
  const connectionString ='mongodb+srv://ninagbs:Nissan2022y@cluster0.yp6m4wn.mongodb.net/unasiposvetasdeca?retryWrites=true&w=majority'
              
 
-
-                           
+const app = express();
 start();
+module.exports = app;
 
 async function start() {
     try {
@@ -29,9 +29,6 @@ async function start() {
         process.exit(1)
     }
     
-   
-
-    const app = express();
 
     app.use(express.json());
     app.use(cors());
@@ -46,6 +43,4 @@ async function start() {
     app.use('/data/catalog', dataController);
    
     app.listen(80, () => console.log('REST service started'));
-
-    module.exports = app;
 }
