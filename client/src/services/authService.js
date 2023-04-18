@@ -1,8 +1,10 @@
 
 import * as request from './requester';
 
+const baseUrl ='unasiposvetasdeca-qotv.vercel.app';
+    
 
-const baseUrl = 'http://localhost:3030'; // TODO: Add server url when deployed
+// const baseUrl = 'http://localhost:3030'; // TODO: Add server url when deployed
 const url = `${baseUrl}/users`;
 
 export const login = (data) => request.post(`${url}/login`, data)

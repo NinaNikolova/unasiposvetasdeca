@@ -1,6 +1,8 @@
 import * as request from "./requester";
 
-const baseUrl =  'http://localhost:3030'; // TODO: Add server url when deployed
+// const baseUrl =  'http://localhost:3030'; // TODO: Add server url when deployed
+
+const baseUrl ='unasiposvetasdeca-qotv.vercel.app';
 const url = `${baseUrl}/data/catalog`;
 
 

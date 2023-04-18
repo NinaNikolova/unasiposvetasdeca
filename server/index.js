@@ -45,6 +45,6 @@ async function start() {
     app.use('/users', authController);
     app.use('/data/catalog', dataController);
    
-
-    app.listen(3030, () => console.log('REST service started'));
+    const baseUrl ='unasiposvetasdeca-qotv.vercel.app';
+    app.listen(baseUrl, () => console.log('REST service started'));
 }
