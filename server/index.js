@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const cors = require('./middlewares/cors');
+const cors = require('cors');
 const authController = require('./controllers/authController');
 const dataController = require('./controllers/dataController');
 const trimBody = require('./middlewares/trimBody');
@@ -26,7 +26,9 @@ function start() {
     
     const app = express();
     app.use(express.json());
-    app.use(cors());
+    app.use(cors({
+        origin: 'https://unasiposvetasdeca.vercel.app'
+    }));
     app.use(trimBody());
     app.use(session());
 
