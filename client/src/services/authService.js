@@ -1,7 +1,7 @@
 
 import * as request from './requester';
 
-const baseUrl ='https://unasiposvetasdeca-qotv-62eh7rxbr-ninagbs-abvbg.vercel.app';
+const baseUrl ='https://unasiposvetasdeca-dgdi.vercel.app/';
     
 
 // const baseUrl = 'http://localhost:3030'; // TODO: Add server url when deployed
