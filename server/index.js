@@ -14,22 +14,17 @@ const commentController = require('./controllers/commentController');
 // const MongoClient = require('mongodb').MongoClient;
  const connectionString ='mongodb+srv://ninagbs:Nissan2022y@cluster0.yp6m4wn.mongodb.net/unasiposvetasdeca?retryWrites=true&w=majority'
              
-
-const app = express();
 start();
-module.exports = app;
 
-async function start() {
-    try {
-      await mongoose.connect(connectionString);  
-       console.log('Database connected');
-    } catch (err) {
-        console.log(err.message)
-        //app to stop
-        process.exit(1)
-    }
+function start() {
+    mongoose.connect(connectionString).then(() => console.log('Database connected'), (err) => {
+    console.log(err.message)
+    //app to stop
+    process.exit(1)
+    });
+    console.log('Database connected');
     
-
+    const app = express();
     app.use(express.json());
     app.use(cors());
     app.use(trimBody());
@@ -43,4 +38,5 @@ async function start() {
     app.use('/data/catalog', dataController);
    
     app.listen(80, () => console.log('REST service started'));
+    module.exports = app;
 }
