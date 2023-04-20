@@ -1,6 +1,6 @@
 import './StoryDetails.module.css'
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Figure from 'react-bootstrap/Figure';
 
@@ -12,10 +12,8 @@ import { useStoryContext } from '../../contexts/StoryContext';
 
 
 export const StoryDetails = () => {
-    const { storyDelete, stories } = useStoryContext()
-console.log(stories)
-    const { userId, isAuthenticated, email } = useAuthContext()
-    console.log(userId, email)
+    const { storyDelete } = useStoryContext()
+    const { userId } = useAuthContext()
     const { storyId } = useParams();
     const [story, setStory] = useState({})
 
@@ -28,7 +26,7 @@ console.log(stories)
             .then(result => {
                 setStory(result);
             })
-    }, [])
+    }, [storyId])
 
 console.log(story)
 
@@ -66,14 +64,14 @@ console.log(story)
 
 
                 <div className="info-wrapper">
+                    
                     <h6><strong><i className="fa-solid fa-user-pen"></i> Автор: </strong></h6>
                     <p>{story.email}</p>
                     <h6><strong><i className="fa-solid fa-book-open-reader"></i> Твоя кратък разказ: </strong></h6>
                     <p>{story.description}</p>
-                    <h6><strong><i className="fa-regular fa-clock"></i> Времетраене: </strong></h6>
+                    <h6><strong><i className="fa-regular fa-clock"></i> Времетраене и марщрут/как се стига до там: </strong></h6>
                     <p>{story.duration}</p>
-                    <h6><strong><i className="fa-solid fa-route"></i> Маршрут и как се стига до там: </strong></h6>
-                    <p>{story.route}</p>
+                  
                     <h6><strong><i className="fa-solid fa-utensils"></i> Места за хранене, ако има и ви харесват: </strong></h6>
                     <p>{story.placesToEat}</p>
                     <h2><i className="fa-solid fa-person-hiking"></i> <i className="fa-solid fa-person-biking"></i> <i className="fa-solid fa-person-walking-luggage"></i></h2>

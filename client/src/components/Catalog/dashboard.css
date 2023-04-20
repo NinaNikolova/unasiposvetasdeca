@@ -23,7 +23,7 @@
 
 #dashboard  .cardLi .card{
   padding: 10px;
-    min-height: 560px;
+    height: 700px;
     margin: 20px auto;
     background-color: white;
     border-radius: 10px;

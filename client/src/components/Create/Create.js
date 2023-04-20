@@ -14,12 +14,12 @@ export const Create = () => {
 	const [description, setDescription] = useState("");
 	const [imageFile, setImageFile] = useState(null);
 	const [img, setImageUrl] = useState("");
-	const [route, setRoute] = useState("");
+	// const [route, setRoute] = useState("");
 	const [duration, setDuration] = useState("");
 	const [placesToEat, setPlacesToEat] = useState("");
 
 
-	const handleNameChange = (e) => {
+	const handleTitleChange = (e) => {
 		setTitle(e.target.value);
 	};
 
@@ -33,9 +33,9 @@ export const Create = () => {
 	const handleDurationChange = (e) => {
 		setDuration(e.target.value);
 	};
-	const handleRouteChange = (e) => {
-		setRoute(e.target.value);
-	};
+	// const handleRouteChange = (e) => {
+	// 	setRoute(e.target.value);
+	// };
 	const handlePlacesToEatChange = (e) => {
 		setPlacesToEat(e.target.value);
 	};
@@ -61,8 +61,10 @@ export const Create = () => {
 		setTitle("");
 		setDescription("");
 		setImageFile(null);
-		setRoute("");
 		setDuration("");
+
+		// setRoute("");
+		
 		setPlacesToEat("");
 	}
 
@@ -87,7 +89,7 @@ export const Create = () => {
 							type="text"
 							id="title"
 							value={title}
-							onChange={handleNameChange}
+							onChange={handleTitleChange}
 						/>
 					</div>
 					<div>
@@ -108,7 +110,7 @@ export const Create = () => {
 						/>
 					</div>
 					<div>
-						<label htmlFor="duration">Времетраене:</label>
+						<label htmlFor="duration">Времетраене и маршрут:</label>
 						<input
 							type="text"
 							size="100"
@@ -117,7 +119,7 @@ export const Create = () => {
 							onChange={handleDurationChange}
 						/>
 					</div>
-					<div>
+					{/* <div>
 						<label htmlFor="route">Mаршрут:</label>
 						<input
 							type="text"
@@ -126,9 +128,9 @@ export const Create = () => {
 							value={route}
 							onChange={handleRouteChange}
 						/>
-					</div>
+					</div> */}
 					<div>
-						<label htmlFor="placesToEat">Места за хранене:</label>
+						<label htmlFor="placesToEat">Препоръчвам места за хранене:</label>
 						<input
 							type="text"
 							size="100"

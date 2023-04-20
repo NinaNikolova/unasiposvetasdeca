@@ -26,7 +26,9 @@ function start() {
     
     const app = express();
     app.use(express.json());
+    // TODO replace * with 'https://unasiposvetasdeca.vercel.app'
     app.use(cors({
+        
         origin: 'https://unasiposvetasdeca.vercel.app'
     }));
     app.use(trimBody());
@@ -38,7 +40,7 @@ function start() {
 
     app.use('/users', authController);
     app.use('/data/catalog', dataController);
-   
+//    TODO replace 80 with 3030
     app.listen(80, () => console.log('REST service started'));
     module.exports = app;
 }

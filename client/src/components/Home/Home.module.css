@@ -1,5 +1,5 @@
 #root #main #home {
-  margin-top: 50px;
+  margin-block: 50px;
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -10,6 +10,7 @@
   margin: auto;
   height: 100%;
   width: 100%;
+  
   background-color: transparent;
   margin-block: 10px;
 }

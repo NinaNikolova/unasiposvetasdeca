@@ -1,13 +1,15 @@
 footer {
     background-color: lightgreen;
+
     color: green;
     font-weight: bolder;
     text-align: center;
-      padding-bottom: 15px;
+      padding: 8px;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30px;
+    max-height: 40px;
     box-shadow: 0 -5px 5px #CBF6FF;
   }
+ 

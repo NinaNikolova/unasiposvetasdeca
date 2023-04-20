@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import { NavLink} from 'react-router-dom'
 import logo from "./logo.jfif";
 import Container from 'react-bootstrap/Container';
 import {Nav} from 'react-bootstrap';
@@ -26,10 +25,12 @@ export const MyNavbar = () => {
         <Navbar bg="ligth" expand="xxl">
 
             <Container fluid>
-            <Nav.Link style={location.pathname === '/' ? activeStyle : {}} as={Link} to="/" active={location.pathname === '/'} > <Figure>
+            <Nav.Link style={location.pathname === '/' ? activeStyle : {}} as={Link} to="/" active={location.pathname === '/'} >
+                <Figure>
                     <Figure.Image
                         width={160}
                         height={80}
+                     
                         alt="logo"
                         src={logo}
                     />

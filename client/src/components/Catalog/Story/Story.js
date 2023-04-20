@@ -20,8 +20,9 @@ export const Story = ({
                 <Card.Img variant="top" src={img} />
               
                 <Card.Body>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{email}</Card.Subtitle>
+                    
+                    <Card.Title style={{ color: 'green' }}>{title}</Card.Title>
+                   
                     <Card.Text>{description.slice(0, description.indexOf('. '))}...</Card.Text>
                     <Link to={`/catalog/${_id}`}>
                     <Button variant="success">Прочети повече...</Button>
