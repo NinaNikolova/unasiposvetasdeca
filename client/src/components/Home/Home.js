@@ -27,7 +27,7 @@ export const Home = () => {
             <Button className="landing-text" href="/catalog" variant="outline-success">Разгледай разказитe&hellip;</Button>{' '}
           </>
           :
-          <Button className="landing-text" href="/catalog" variant="outline-success">Разгледай разказитеe&hellip;</Button>
+          <Button className="landing-text" href="/catalog" variant="outline-success">Разгледай разказите&hellip;</Button>
         }
         
       </div>

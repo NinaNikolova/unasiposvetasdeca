@@ -24,9 +24,9 @@ export const StoryProvider = ({
     const onCreateStorySubmit = async (data) => {
         const newStory = await storyService.create(data);
        
-        // TODO: add to state
+        
         setStories(state => ([...state, newStory]))
-        // TODO: redirect to catalog
+   
         navigate('/catalog')
     }
 

@@ -46,7 +46,7 @@ export const AuthProvider = ({
         onLogout,
         userId: auth._id,
         token: auth.accessToken,
-        email: auth.email,
+        username: auth.username,
         isAuthenticated: !!auth.accessToken
 
     }

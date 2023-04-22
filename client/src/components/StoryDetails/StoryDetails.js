@@ -66,7 +66,7 @@ console.log(story)
                 <div className="info-wrapper">
                     
                     <h6><strong><i className="fa-solid fa-user-pen"></i> Автор: </strong></h6>
-                    <p>{story.email}</p>
+                    <p>{story.username}</p>
                     <h6><strong><i className="fa-solid fa-book-open-reader"></i> Твоя кратък разказ: </strong></h6>
                     <p>{story.description}</p>
                     <h6><strong><i className="fa-regular fa-clock"></i> Времетраене и марщрут/как се стига до там: </strong></h6>

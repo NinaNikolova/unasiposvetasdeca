@@ -18,7 +18,7 @@ dataController.get('/', async (req, res) => {
 
 dataController.post('/', hasUser(), async (req, res) => {
     try {
-        const data = Object.assign({ _ownerId: req.user._id, email: req.user.email }, req.body);
+        const data = Object.assign({ _ownerId: req.user._id, username: req.user.username }, req.body);
         const item = await create(data);
         res.json(item);
     } catch (err) {

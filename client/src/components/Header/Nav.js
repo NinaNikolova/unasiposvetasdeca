@@ -11,7 +11,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext'
 
 export const MyNavbar = () => {
-    const { isAuthenticated, email } = useContext(AuthContext)
+    const { isAuthenticated, username } = useContext(AuthContext)
     const location = useLocation();
     const activeStyle = {
         backgroundColor: 'rgb(242, 242, 242)',
@@ -51,7 +51,6 @@ export const MyNavbar = () => {
                             <>
                                <Nav.Link style={location.pathname === '/create' ? activeStyle : {}}  as={Link} to="/create" active={location.pathname === '/create'} >Създай <i className="fa-solid fa-pen"></i></Nav.Link>
                                 <Nav.Link style={location.pathname === '/logout' ? activeStyle : {}}  as={Link} to="/logout" active={location.pathname === '/logout'} >Излез <i className="fa-solid fa-right-from-bracket"></i></Nav.Link>
-                                {/* <Nav.Link style={location.pathname === '/todos' ? activeStyle : {}}  as={Link} to="/todos" active={location.pathname === '/todos'} >TODO <i className="fa-solid fa-list"></i></Nav.Link> */}
                             </>
                             :
                             <>
@@ -66,7 +65,7 @@ export const MyNavbar = () => {
                 </Navbar.Collapse>
 
             </Container>
-            {isAuthenticated === true && (<span style={{ color: 'green', fontSize: '16px' }}>Здравей, {email}</span>)}
+            {isAuthenticated === true && (<span style={{ color: 'green', fontSize: '16px' }}>Здравей, {username}</span>)}
         </Navbar>
 
 

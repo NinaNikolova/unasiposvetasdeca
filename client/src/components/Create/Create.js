@@ -9,7 +9,7 @@ import { useState } from 'react';
 export const Create = () => {
 
 	const { onCreateStorySubmit, storyAdd } = useStoryContext()
-	const { email } = useAuthContext()
+	const { username } = useAuthContext()
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [imageFile, setImageFile] = useState(null);
@@ -55,7 +55,7 @@ export const Create = () => {
 		const data = await response.json();
 		const img = data.secure_url;
 		setImageUrl(img);
-		await onCreateStorySubmit({ title, img, description, duration, placesToEat })
+		await onCreateStorySubmit({ title, img, description, duration, placesToEat , username})
 
 		// Reset form fields
 		setTitle("");
@@ -119,16 +119,7 @@ export const Create = () => {
 							onChange={handleDurationChange}
 						/>
 					</div>
-					{/* <div>
-						<label htmlFor="route">Mаршрут:</label>
-						<input
-							type="text"
-							size="100"
-							id="route"
-							value={route}
-							onChange={handleRouteChange}
-						/>
-					</div> */}
+					
 					<div>
 						<label htmlFor="placesToEat">Препоръчвам места за хранене:</label>
 						<input
@@ -139,7 +130,7 @@ export const Create = () => {
 							onChange={handlePlacesToEatChange}
 						/>
 					</div>
-					<button type="submit">Submit</button>
+					<button type="submit">Създай</button>
 				</form>
 
 			</div>

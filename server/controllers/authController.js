@@ -8,8 +8,7 @@ const { parseError } = require('../util/parser');
 authController.post('/register',
     body('email').isEmail().withMessage('Грешен имейл'),
     body('password').isLength({ min: 6 }).withMessage('Паролата трябва да бъде поне 6 знака')
-    .matches(/.*EmI.*/)
-        .withMessage('Ако искаш да се регистрираш пиши на ninagbs@abv.bg'),
+    .matches(/.*EmI.*/).withMessage('Ако искаш да се регистрираш пиши на ninagbs@abv.bg'),
     async (req, res) => {
         try {
             const { errors } = validationResult(req);
@@ -17,7 +16,7 @@ authController.post('/register',
                 throw errors;
             }
 
-            const token = await register(req.body.email, req.body.password);
+            const token = await register(req.body.email, req.body.username, req.body.password);
             res.json(token);
         } catch (error) {
             const message = parseError(error);
