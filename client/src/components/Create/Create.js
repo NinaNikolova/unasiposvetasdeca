@@ -139,7 +139,7 @@ export const Create = () => {
 							onChange={handlePlacesToEatChange}
 						/>
 					</div>
-					<button type="submit">Submit</button>
+					<button type="submit">Създай</button>
 				</form>
 
 			</div>
