@@ -10,6 +10,7 @@ function UncontrolledExample() {
 <Carousel style={{marginBlock: '30px'}}>
       {stories.map(item => (
         <Carousel.Item style={{ maxHeight: '600px' }} key={item._id}>
+          <Link to={`catalog/${item._id}`}>
           <img
             className="d-block w-100"
             src={item.img}
@@ -19,6 +20,7 @@ function UncontrolledExample() {
             <p>{item.title}</p>
            
           </Carousel.Caption>
+              </Link>
         </Carousel.Item>
       ))}
     </Carousel>
