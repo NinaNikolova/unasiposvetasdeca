@@ -45,8 +45,8 @@ export const EditStory = () => {
         <label htmlFor="title">Заглавие: <input type="text" name="title" placeholder="Заглавие" defaultValue={currentStory.title} /></label>
           <label>Снимка: <input type="text" name="img" aceholder="Снимка https://..." defaultValue={currentStory.img} /></label>
           <label>Твоя кратък разказ: <textarea name="description" cols="200" rows="40" placeholder="Твоя кратък разказ" defaultValue={currentStory.description} ></textarea></label>
-          <label>Времетраене: <input type="text" name="duration" size="100" placeholder="Времетраене" defaultValue={currentStory.duration} /></label>
-          <label>Маршрут: <input type="text" placeholder="Маршрут" size="100" defaultValue={currentStory.route} /></label>
+          <label>Времетраене и маршрут: <input type="text" name="duration" size="100" placeholder="Времетраене" defaultValue={currentStory.duration} /></label>
+         
           <label>Места за хранене: <input type="text" size="100" name="placesToEat" placeholder="Места за хранене" defaultValue={currentStory.placesToEat} /></label>
           <button type="submit">Редактирай</button>
         </form>
