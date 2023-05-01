@@ -43,6 +43,7 @@ export const Create = () => {
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsCreating(true);
 		// Upload image to Cloudinary
 		const formData = new FormData();
 		formData.append("file", imageFile);
@@ -60,7 +61,7 @@ export const Create = () => {
 		if(title==""|| img==""|| description==""|| duration==""|| placesToEat==""){
 			return alert("Моля, попълнете всички полета!")
 		}
-		setIsCreating(true);
+		
 		await onCreateStorySubmit({ title, img, description, duration, placesToEat , username})
 
 		// Reset form fields
