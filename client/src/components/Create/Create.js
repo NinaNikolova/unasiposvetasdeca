@@ -56,6 +56,9 @@ export const Create = () => {
 		const data = await response.json();
 		const img = data.secure_url;
 		setImageUrl(img);
+		if(title==""|| img==""|| description==""|| duration==""|| placesToEat==""){
+			return alert("Моля, попълнете всички полета!")
+		}
 		await onCreateStorySubmit({ title, img, description, duration, placesToEat , username})
 
 		// Reset form fields
