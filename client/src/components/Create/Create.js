@@ -18,6 +18,7 @@ export const Create = () => {
 	
 	const [duration, setDuration] = useState("");
 	const [placesToEat, setPlacesToEat] = useState("");
+		const [isCreating, setIsCreating] = useState(false);
 
   const navigate = useNavigate()
 	const handleTitleChange = (e) => {
@@ -59,6 +60,7 @@ export const Create = () => {
 		if(title==""|| img==""|| description==""|| duration==""|| placesToEat==""){
 			return alert("Моля, попълнете всички полета!")
 		}
+		setIsCreating(true);
 		await onCreateStorySubmit({ title, img, description, duration, placesToEat , username})
 
 		// Reset form fields
@@ -135,7 +137,11 @@ export const Create = () => {
 							onChange={handlePlacesToEatChange}
 						/>
 					</div>
-					<button type="submit">Създай</button>
+					{isCreating == false ?
+						<button type="submit">Създай</button>
+						:
+						<div style={{ textAlign: 'center' }} class="spinner">'Създава се...'</div>
+					}
 				</form>
 
 			</div>
