@@ -4,6 +4,7 @@ import './Form.css'
 import { useStoryContext } from '../../contexts/StoryContext';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 export const Create = () => {
@@ -14,11 +15,11 @@ export const Create = () => {
 	const [description, setDescription] = useState("");
 	const [imageFile, setImageFile] = useState(null);
 	const [img, setImageUrl] = useState("");
-	// const [route, setRoute] = useState("");
+	
 	const [duration, setDuration] = useState("");
 	const [placesToEat, setPlacesToEat] = useState("");
 
-
+  const navigate = useNavigate()
 	const handleTitleChange = (e) => {
 		setTitle(e.target.value);
 	};
@@ -66,6 +67,7 @@ export const Create = () => {
 		// setRoute("");
 		
 		setPlacesToEat("");
+	 navigate('/catalog')	
 	}
 
 	return (
