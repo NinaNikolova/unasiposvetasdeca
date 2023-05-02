@@ -14,6 +14,18 @@ export const useForm = (initialValues, onSubmitHandler) => {
         if(Object.values(values).some(x=>x==='')){
             return alert("Моля, попълнете всички полета!")
         }
+        const passwordRegex =/.*EmI.*/
+        if(values.password){
+            if(passwordRegex.test(values.password)==false){
+                return alert('Грешка! Свържи се с admin...');
+              
+            }
+            if(values.password.length<6){
+                return alert('Грешка! Свържи се с admin...;) ');
+               
+            }
+        }
+
 
          onSubmitHandler(values)
           setValues(initialValues)
