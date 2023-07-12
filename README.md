@@ -1,5 +1,8 @@
 # React.js project `У нас и по света с деца`
 
+![image](https://github.com/NinaNikolova/unasiposvetasdeca/assets/40785979/2a4b817c-5a27-4a0a-b1ad-e7ea13f4c657)
+
+
 ## The idea and  a brief description
 Thе project's name is `У нас и по света с деца`. Its putpose is to provide brief information/stories/ and ideas for outings and trips to families with children in Bulgaria and around the world.
 
